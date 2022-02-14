@@ -107,31 +107,29 @@ PhysGL will cause the object to remain on the screen during animation (i.e. not
 be erased by the frame clearing).
 
 
-* camera(position-vector,look-at-vector) - set the camera position and look-at point
+* `camera(position-vector,look-at-vector)` - set the camera position and look-at point
 
 
-* light(position-vector) - set the position of the light source
+* `light(position-vector)` - set the position of the light source
 
 
-* draw_sphere(position-vector,radius-scalar,color-text[,persist]) - draw a sphere
+* `draw_sphere(position-vector,radius-scalar,color-text[,persist])` - draw a sphere
  
-* draw_box(corner1-vector,corner2-vector,color--text[,persist]) - draw a box
+* `draw_box(corner1-vector,corner2-vector,color--text[,persist])` - draw a box
 
-* draw_cube(center-vector,color--text[,persist]) - draw a cube
+* `draw_cube(center-vector,color--text[,persist])` - draw a cube
 
-* draw_line(end1-vector,end2-vector,color--text,thickness-scalar[,persist]) - draw a line
+* `draw_line(end1-vector,end2-vector,color,text,thickness-scalar[,persist])` - draw a line
 
-* draw_hspring(x0-scalar,x1-scalar,y0-scalar,radius-scalar,color-text[,persist]) - draw a horizontal spring
+* `draw_hspring(x0-scalar,x1-scalar,y0-scalar,radius-scalar,color-text[,persist])` - draw a horizontal spring
 
-* draw_plane(normal-vector,offset-scalar,color-text,size-scalar[,persist]) - draw a plane normal to the normal-vector with the color and side-length of size.  The plane will be 
+* `draw_plane(normal-vector,offset-scalar,color-text,size-scalar[,persist])` - draw a plane normal to the normal-vector with the color and side-length of size.  The plane will be  slid along the normal vector by the amount offset.* 
 
-* slid along the normal vector by the amount offset.* 
+* `printxy(position-vector,”text”,size-scalar,color-text[,persist])` - draw some text
 
-* printxy(position-vector,”text”,size-scalar,color-text[,persist]) - draw some text
+* `rnd([min-scalar,max-scalar])` - find a random number between 0 and 1, or optionally between min and max.
 
-* rnd([min-scalar,max-scalar]) - find a random number between 0 and 1, or optionally between min and max.
-
-* draw_axes(scale-scalar[,persist]) - draw the x-y-z coordinate axes with a zoom factor of  scale
+* `draw_axes(scale-scalar[,persist])` - draw the x-y-z coordinate axes with a zoom factor of  scale
 
 
 # Installation
