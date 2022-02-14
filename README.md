@@ -14,7 +14,7 @@ should be able to see a “Run” button under the code editor.
 
 Into the code editor, type this single line
 
-draw_sphere(<0,0,0>,15,"red")
+```draw_sphere(<0,0,0>,15,"red")```
 
 then click the “run” button.  You should see a red sphere appear at the center
 of the screen (x=0, y=0, z=0) with a radius of 15 pixels.  If you change the
