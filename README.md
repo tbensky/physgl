@@ -96,9 +96,9 @@ end
 
 Here are many of the core drawing functions you can use.  Note that any
 parameters requring a vector (like a position) must be in an explicit vector
-form, as in <5,3,2>, or fed with a vector variable.  Thus drawing a sphere can
-be done with draw_sphere(<5,3,1>,15,”red”) or with the sequence pos=<5,5,5>
-draw_sphere(pos,15,”red”).  Vector (vs. scalar) parameters are denoted in the
+form, as in `<5,3,2>`, or fed with a vector variable.  Thus drawing a sphere can
+be done with `draw_sphere(<5,3,1>,15,”red”)` or with the sequence `pos=<5,5,5>`
+`draw_sphere(pos,15,”red”)`.  Vector (vs. scalar) parameters are denoted in the
 list below with a suffix of “-vector” or “-scalar.” Parameters that are to be
 text and enclosed in double quotes ave the suffix “-text.”  Note the last
 parameter in all functions that draw on the screen is the “persist” flag, which
@@ -235,9 +235,9 @@ work deadline looms.
 graphics and what creates them.  Thus, we insist on a system whereby a complete
 “program” can contains exactly one line of “common sense” text such as
 
-
+```
 draw_sphere(<0,0,0>,15,"red"),
-
+```
 
 to show a red “nice-looking” sphere with some shadows and perspective at
 coordinates (x=0,y=0,z=0) with a radius of 15 pixels.  This single line is the
@@ -256,7 +256,7 @@ or required white space.
 insist on a native vector data type.  The data type should be in the form of the
 standard called "ordered-set notation," as found in college-level instruction.
 Thus x=<5,3,2> is valid and makes x a vector variable with an x-component of 5,
-y-component of 3, and z-component of 2. Lines like y=2*<5,3*cos(Pi/7),2> are
+y-component of 3, and z-component of 2. Lines like `y=2*<5,3*cos(Pi/7),2>` are
 valid, as are sequences like
 
 ```
@@ -333,7 +333,7 @@ Pi =3.1415...
 
 # Vector data type
 PhysGL has a native vector data type.  As common in scientific and mathematical
-texts, it uses ordered set or “triple tuple” notation, which is <xx,yy,zz>,
+texts, it uses ordered set or “triple tuple” notation, which is `<xx,yy,zz>`,
 where xx, yy, and zz are the x, y, and z-components of the vector. Thus the
 following lines are valid in PhysGL
 
@@ -343,16 +343,16 @@ vel=<5*cos(10),2+16^2,1>
 ```
 
 The language also overloads the common mathematical operators to handle vectors
-in arithmetic as follows (assume these definitions: pos=<1,0,0>, pos1=<0,5,1>,
-vel=<5,0,0>, a=<-1,1,3> and dt=0.1).
+in arithmetic as follows (assume these definitions: `pos=<1,0,0>`, `pos1=<0,5,1>`,
+`vel=<5,0,0>`, `a=<-1,1,3> `and `dt=0.1`).
 
 
-* Dot product: vsq = vel * vel
-* Cross product vp = vel # vel (not implemented yet)
-* Multiply vector by a scalar: pos = vel * dt
-* Add two vectors: pos=pos+pos1
-* Subtract two vectors: pos=pos1-pos
-* Full vector expression: pos=pos+vel*dt+0.5*a*dt^2
+* Dot product: `vsq = vel * vel`
+* Cross product `vp = vel # vel` (not implemented yet)
+* Multiply vector by a scalar: `pos = vel * dt`
+* Add two vectors: `pos=pos+pos1`
+* Subtract two vectors: `pos=pos1-pos`
+* Full vector expression: `pos=pos+vel*dt+0.5*a*dt^2`
 
 
 
