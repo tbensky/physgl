@@ -1,0 +1,88 @@
+#drop database physgl;
+#create database physgl;
+use physgl;
+
+
+create table code (
+	code_id int not null auto_increment,
+	user_hash text,
+	file_name text,
+	code_hash text,
+	code text,
+	narrative text,
+	date timestamp,
+	folder_hash varchar(32),
+	primary key(code_id)
+);
+
+create table user (
+	user_id int not null auto_increment,
+	user_name text,
+	auth_hash text,
+	user_hash text,
+	primary key(user_id)
+);
+
+create table data (
+	data_id int not null auto_increment,
+	user_hash text,
+	data_name text,
+	data_value text,
+	ts bigint,
+	ts_now timestamp,
+	primary key(data_id)
+);
+
+create table io (
+	io_id int not null auto_increment,
+	user_hash text,
+	public_key text,
+	private_key text,
+	primary key (io_id)
+);
+
+create table output (
+	output_id int not null auto_increment,
+	public_key varchar(32),
+	name text,
+	value text,
+	primary key (output_id)
+);
+
+create table share (
+	share_id int not null auto_increment,
+	user_hash text,
+	share_hash text,
+	code text,
+	narrative text,
+	date timestamp,
+	primary key(share_id)
+);
+
+create table folder (
+	folder_id int not null auto_increment,
+	user_hash text,
+	folder_hash text,
+	appear_in_hash text,
+	name text,
+	primary key(folder_id)
+);
+
+create table share_settings (
+	share_settings_id int not null auto_increment,
+	share_hash varchar(32),
+	name varchar(50),
+	value varchar(100),
+	primary key (share_settings_id)
+);
+
+create table layout (
+	layout_id int not null auto_increment,
+	code_hash varchar(32),
+	code varchar(100),
+	graphics varchar(100),
+	xy varchar(100),
+	console varchar(100),
+	buttons varchar(100),
+	primary key (layout_id)
+);

@@ -1,0 +1,295 @@
+body {
+	 background-color: #ffffff;
+	 width: 100%;
+	 margin: 0px;
+	 padding: 0px
+	 font-family: Times,Helvetica;
+	 font-size: 12pt;
+	 color: #4F5155;
+}
+
+#header
+	{
+	 	padding: 0px;
+	 	width: 100%;
+	 	margin-left: 2px;
+	 	margin-right: auto;
+	}
+	
+#footer
+	{
+		font-size: 10pt;
+	}
+
+	
+h1 {
+ color: #444;
+ background-color: transparent;
+ font-size: 16pt;
+ font-weight: bold;
+ margin: 24px 0 2px 0;
+ padding: 5px 0 6px 0;
+}
+
+
+h2 {
+ color: #444;
+ background-color: transparent;
+ font-size: 16px;
+ font-weight: bold;
+ margin: 24px 0 2px 0;
+ padding: 5px 0 6px 0;
+}
+
+h3 {
+ color: #444;
+ background-color: transparent;
+ font-size: 14px;
+ font-weight: bold;
+ margin: 24px 0 2px 0;
+ padding: 5px 0 6px 0;
+}
+
+
+	
+#pmode_small
+	{
+		margin: 0px;
+		padding: 0px;
+		background-color: #aaaaaa;
+		cursor: crosshair;
+		font-family: Menlo;
+		font-size: 10pt;
+		color: #000000;	
+	}
+	
+#pmode_large
+	{
+		margin: 0px;
+		border: 1px solid #000000;
+		background-color: #aaaaaa;
+		cursor: crosshair;
+		width: 800px;
+		height: 600px;
+		font-family: Menlo;
+		font-size: 10pt;
+		color: #000000;	
+	}
+	
+#dump
+	{
+		display: none;
+    	visibility: hidden;
+    	
+	}
+
+
+#run_button
+	{
+		z-index: 1000 ;
+	}
+
+#graph
+	{
+		margin: 0px;
+	}
+	
+#console_link
+	{
+		font-size: 10pt;
+		margin: 0px;
+	}
+		
+#footer
+	{
+		margin-top: 2cm;
+	}
+	
+#error_message
+	{
+		padding: 5px;
+		color: #ff0000;
+		font-size: 10pt;
+	}
+	
+#message
+	{
+		padding: 5px;
+		color: #ffffff;
+		background: #ff0000;
+		font-size: 12pt;
+		display: inline-block;
+	}
+	
+#share
+	{
+		font-size: 8pt;
+	}
+	
+	
+
+#wrapper { margin: 0 auto; max-width: 600px; }
+
+#account_input { font-size: 14pt; background-color: #FFFFCC; }
+
+#top-bar 
+	{
+		position: relative; 
+		padding: 5px; 
+		height: 50px; 
+		margin: 0; 
+		width: 100%; 
+		overflow: hidden;  
+		background: #000000;
+		border-bottom: 2px solid #999999;
+	}
+
+#login_line 
+	{ 
+		position: absolute; 
+		right: 50px; 
+		width: auto; 
+		font-size: 10pt;
+		color: #ffffff;
+		font-family: Helvetica;
+	}
+	
+#nav
+	{
+		text-decoration: none;
+		color: #ffffff;
+		font-family: Helvetica;
+		font-size: 10pt;
+	}
+
+#intro_text
+	{
+		margin-left: 2cm;
+		max-width: 900px;
+		font-size: 14pt;
+		font-family: Times;
+		color: #666666;
+	}
+	
+#logo
+	{
+		font-size: 14pt;
+		color: #ffffff;
+		text-decoration: none;
+		font-family: Helvetica;
+	}
+	
+#slider_labels
+	{
+		font-size: 10pt;
+		font-family: Helvetica;
+	}
+
+
+#slider_text_label
+	{
+		font-size: 12pt;
+		font-family: Helvetica;
+	}
+
+#filemanager
+	{
+		margin-left: 1cm;
+		font-size: 14pt;
+		font-family: Helvetica;
+	}
+	
+#dropbox_buttons
+	{
+		padding: 0px;
+		margin-left: 1cm;
+	}
+
+#button_style
+	{
+		font-size: 14pt;
+	}
+#file_button
+	{
+		font-size: 12pt;	
+	}
+	
+#page_outer
+{
+	width: 100%;
+	margin: 0 auto;
+}
+
+#page_inner
+{
+	margin: 0px auto;
+	width: 95%;
+}
+
+
+#code_dialog, #graphics_dialog,
+{
+	margin: 0px;
+	padding: 0px;
+	width: 500px;
+	height: 500px;
+	overflow: hidden;
+}
+
+#code_editor
+	{
+		font-family: Menlo;
+		font-size: 12pt;
+		background: #fafacc;
+		padding: 0px;
+		margin: 0px;
+	}
+
+#console_dialog, #xy_dialog
+	{
+		height: 100px;
+		overflow: auto;
+		font-family: Courier;
+		font-size: 12pt;
+		margin-top:0px;
+	}
+	
+#share_dialog
+{
+	display: none;
+	font-size: 10pt;
+}
+
+#new_folder_dialog, #move_file_dialog
+{
+	display: none;
+	font-size: 12pt;
+}
+
+
+	
+#share_link
+{
+	font-size: 10pt;
+}
+
+#filename
+{
+	font-size: 14pt;
+}
+
+#save_update
+{
+	font-size: 12pt;
+	color: #ff0000;
+	margin-left: 10px;
+}
+
+.ui-dialog .ui-dialog-titlebar 
+{
+    height: 50px; /* or whatever you want */
+    overflow: hidden;
+}
+
+
+

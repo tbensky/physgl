@@ -1,0 +1,3 @@
+alter table folder add column date timestamp after name
+alter table code add column layout text after narrative
+alter table share add column layout text after narrative

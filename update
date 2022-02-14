@@ -1,0 +1,7 @@
+rm physgl.zip
+zip -r physgl.zip application/controllers application/views application/models *.css *.js database images/
+cp sh.zip ~/Dropbox/Scheduling/SiteBackup
+cp sh.zip /Users/tom/AWS
+cd /Users/tom/AWS
+scp -i tbensky.pem sh.zip tbensky@test-proton.csm.calpoly.edu:/tmp
+
