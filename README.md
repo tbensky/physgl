@@ -113,31 +113,25 @@ be erased by the frame clearing).
 * light(position-vector) - set the position of the light source
 
 
-draw_sphere(position-vector,radius-scalar,color-text[,persist]) - draw a sphere
+* draw_sphere(position-vector,radius-scalar,color-text[,persist]) - draw a sphere
+ 
+* draw_box(corner1-vector,corner2-vector,color--text[,persist]) - draw a box
 
+* draw_cube(center-vector,color--text[,persist]) - draw a cube
 
-draw_box(corner1-vector,corner2-vector,color--text[,persist]) - draw a box
+* draw_line(end1-vector,end2-vector,color--text,thickness-scalar[,persist]) - draw a line
 
+* draw_hspring(x0-scalar,x1-scalar,y0-scalar,radius-scalar,color-text[,persist]) - draw a horizontal spring
 
-draw_cube(center-vector,color--text[,persist]) - draw a cube
+* draw_plane(normal-vector,offset-scalar,color-text,size-scalar[,persist]) - draw a plane normal to the normal-vector with the color and side-length of size.  The plane will be 
 
+* slid along the normal vector by the amount offset.* 
 
-draw_line(end1-vector,end2-vector,color--text,thickness-scalar[,persist]) - draw a line
+* printxy(position-vector,”text”,size-scalar,color-text[,persist]) - draw some text
 
+* rnd([min-scalar,max-scalar]) - find a random number between 0 and 1, or optionally between min and max.
 
-draw_hspring(x0-scalar,x1-scalar,y0-scalar,radius-scalar,color-text[,persist]) - draw a horizontal spring
-
-
-draw_plane(normal-vector,offset-scalar,color-text,size-scalar[,persist]) - draw a plane normal to the normal-vector with the color and side-length of size.  The plane will be slid along the normal vector by the amount offset.
-
-
-printxy(position-vector,”text”,size-scalar,color-text[,persist]) - draw some text
-
-
-rnd([min-scalar,max-scalar]) - find a random number between 0 and 1, or optionally between min and max.
-
-
-draw_axes(scale-scalar[,persist]) - draw the x-y-z coordinate axes with a zoom factor of  scale
+* draw_axes(scale-scalar[,persist]) - draw the x-y-z coordinate axes with a zoom factor of  scale
 
 
 # Installation
@@ -415,18 +409,19 @@ Note the then statement is required as is the terminating end statement.
 Logical operators include <, >, <> (for not equal), <=, and >=.  Combination
 truth-table elements include and, or and not, as in this example
 
+```
 
 if x < 10 and y > 50 then
- ….
+ ...
 end
-
+```
 
 No else construct is available (yet).
 
 
 
 
-Functions
+# Functions
 Function are declared starting with the function keyword, a function name, a
 required parenthesized, comma-separated argument list, the function body, then
 an end statement to terminate the function body.  To return a value to the
@@ -434,16 +429,17 @@ caller, the return statement is used, which exits the function returning its
 argument to the caller.  Here is an example that take x as an input argument and
 returns twice its value through the variable y.
 
-
+```
 function timestwo(x)
   y=2*x
   return(y)
 end
+```
 
 
 
 
-Animation
+# Animation
 Animation requires a loop to execute, to allow for rapid drawing and erasing of
 the display area to produce “animation.”  This requires a tight loop with close
 ties to the browser timer as implemented in Javascript, in order to not paralyze
@@ -455,7 +451,7 @@ given program, akin to the single and eventual event-loop ultimately required in
 OpenGL, for instance. Here is an example that will send a red sphere from
 left-to-right across the screen.
 
-
+```
 x=-200
 t=0
 while x < 200 animate
@@ -463,7 +459,7 @@ while x < 200 animate
         draw_sphere(pos,25,"red")
         x=x+10
 end
-
+```
 
 Note the while-animate-end structure is a while loop, but one that prevents the
 repeated iterations from dominating the CPU time allocated to the browser 
@@ -474,10 +470,10 @@ animation, the programmer needs only worry about drawing (but not removing)
 objects within the body of the while-animate-end structure.
 
 
-PhysGL function library
+# PhysGL function library
 
 
-Graphics
+## Graphics
 The coordinate system has the x-axis running left and right across the screen
 with +x to the the right and -x to the left.  The y-axis runs up and down, with
 +y up and -y down.  The +z axis comes out of the screen toward the viewer, with
@@ -496,14 +492,16 @@ of the camera and look-at sets the point at which the camera should be aimed.
 
 
 Examples: 
+```
 camera(<0,0,500>,<0,0,0>)
-
+```
 
 For an orbiting camera, assuming t is defined:
+```
 x=500*cos(2*Pi*t)
 z=500*sin(2*Pi*t)
 camera(<x,0,z>,<0,0,0>)
-
+```
 
 
 
@@ -516,23 +514,24 @@ Parameters: position is a vector, which sets the position of the light source.
 
 
 Examples: 
+```
 light(<0,100,500>)
+```
 
-
-camera(position,look-at)
-light(position)
-draw_sphere(position,radius,color[,persist])
-draw_box(corner1,corner2,color[,persist])
-draw_cube(center,color[,persist])
-draw_vector(tail,vector,color,”label”[,persist])
-draw_line(end1,end2,color,thickness[,persist])
-draw_hspring(x0,x1,y0,radius,color[,persist])
-draw_plane(normal,offset,color,size[,persist])
-printxy(position,”text”,size,color[,persist])
-set_vector_scale(n)
-set_vector_thickness(n)
-set_vector_label_scale(n)
-plotxy(function,xmin,xmax,dx,z,color,thickness[,persist])
-rnd([min,max])
-draw_axes(scale[,persist])
-frame_delta(n)
+* camera(position,look-at)
+* light(position)
+* draw_sphere(position,radius,color[,persist])
+* draw_box(corner1,corner2,color[,persist])
+* draw_cube(center,color[,persist])
+* draw_vector(tail,vector,color,”label”[,persist])
+* draw_line(end1,end2,color,thickness[,persist])
+* draw_hspring(x0,x1,y0,radius,color[,persist])
+* draw_plane(normal,offset,color,size[,persist])
+* printxy(position,”text”,size,color[,persist])
+* set_vector_scale(n)
+* set_vector_thickness(n)
+* set_vector_label_scale(n)
+* plotxy(function,xmin,xmax,dx,z,color,thickness[,persist])
+* rnd([min,max])
+* draw_axes(scale[,persist])
+* frame_delta(n)* 
