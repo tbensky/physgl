@@ -66,9 +66,9 @@ if (empty($layout))
 	$layout = <<<EOT
 	[{id: "code_dialog", x: 100, y: 100, height: 450, width: 300},
 	{id: "graphics_dialog", x: 500, y: 191.25, height: 488, width: 504},
-	{id: "xy_dialog", x: 0, y: 0, height: 0, width: 400},
-	{id: "console_dialog", x: 0, y: 0, height: 0, width: 0},
-	{id: "narrative_dialog", x: 0, y: 0, height: 0, width: 0}];
+	{id: "xy_dialog", x: 0, y: 0, height: 50, width: 400},
+	{id: "console_dialog", x: 0, y: 0, height: 50, width: 400},
+	{id: "narrative_dialog", x: 0, y: 0, height: 50, width: 400}];
 EOT;
 }
 
@@ -104,8 +104,6 @@ if (empty($folder_hash))
 			$url_files = site_url("welcome/filemanager/$folder_hash");
 			echo<<<EOT
 
-
-
 	<div class="row">
 		<div class="col-md-3">
 		    <label for="filename" class="sr-only">Project name</label>
@@ -113,12 +111,12 @@ if (empty($folder_hash))
 	    </div>
 	  
 	  	<button class="btn btn-success btn-sm mr-1" onclick="save_code()">Save</button>
+	  	<button class="btn btn-primary btn-sm mr-1" onclick="_PHYSGL_go_to_url('$url_files')">Files</button>
 
 		 <span class="dropdown">
-		 	<button class="btn btn-secondary btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span>
+		 	<button class="btn btn-secondary btn dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			<li><a class="dropdown-item" href="#" onclick="_PHYSGL_go_to_url('$url_files')">Files</a></li>
 			<li><a class="dropdown-item" href="#" onclick="_PHYSGL_share_link()">Share</a></li>
 			<li><a class="dropdown-item" href="#" onclick="edit_narrative('dialog')">Edit narrative</a></li>
 			</ul>
@@ -126,8 +124,6 @@ if (empty($folder_hash))
 
 		<span id="save_update"></span>
 	</div>
-
-
 EOT;		
 		}	
 ?>
@@ -144,7 +140,7 @@ EOT;
 		
 		<div id="graphics_dialog" title='Graphics' style="background: #000000">
 			<div id="xrun_button"></div>
-			<div id="interact_small"></div>
+			<div id="interact_small" style="color: #ffffff; background-color: #505050; border-radius: 5px; margin-top: 3px"></div>
 			<div id="pmode_small"></div>
 		</div>
 		
@@ -1051,15 +1047,15 @@ function pause_button_toggle()
 	var b;
 	if (_PHYSGL_pause)
 		{
-			b = '<button id="button_style" onclick="_PHYSGL_stop_run();">Stop</button>';
-			b = b + '<button id="button_style" onclick="_PHYSGL_pause_run();">Resume</button>';
-			b = b + '<button id="button_style" onclick="take_step();">Step</button>';
+			b = '<button class="btn btn-danger btn-sm mr-1" id="button_style" onclick="_PHYSGL_stop_run();">Stop</button>';
+			b = b + '<button class="btn btn-info btn-sm mr-1" id="button_style" onclick="_PHYSGL_pause_run();">Pause</button>';
+			b = b + '<button class="btn btn-warning btn-sm mr-1" id="button_style" onclick="take_step();">Step</button>';
 		}
 	else
 		{
-			b = '<button id="button_style" onclick="_PHYSGL_stop_run();">Stop</button>';
-			b = b + '<button id="button_style" onclick="_PHYSGL_pause_run();">Pause</button>';
-			b = b + '<button id="button_style" onclick="take_step();">Step</button>';
+		b = '<button class="btn btn-danger btn-sm mr-1" id="button_style" onclick="_PHYSGL_stop_run();">Stop</button>';
+			b = b + '<button class="btn btn-info btn-sm mr-1" id="button_style" onclick="_PHYSGL_pause_run();">Pause</button>';
+			b = b + '<button class="btn btn-warning btn-sm mr-1" id="button_style" onclick="take_step();">Step</button>';
 		}
 	$('#xrun_button').html(b);
 }

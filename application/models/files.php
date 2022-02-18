@@ -79,7 +79,7 @@ class Files extends CI_Model {
 			$fl .= "<input id=\"button_$code_hash\" type=\"checkbox\" value=\"$code_hash\" onClick=\"add_to_delete('$code_hash');\"> ";
 			$fl .= anchor("welcome/load_code/$code_hash",$file_name) . "<br/>";
 			$fl .= "</td>";
-			$fl .= "<td>" . $row['date'] . "</td>";
+			$fl .= "<td><span class='small text-muted'>" . $row['date'] . "</span></td>";
 			$fl .= "</tr>";
 		
 		}
@@ -100,7 +100,7 @@ class Files extends CI_Model {
 			$fl .= "&#128193;";
 			$fl .= anchor("welcome/filemanager/$folder_hash",$folder_name) . "<br/>";
 			$fl .=  "</td>";
-			$fl .=  "<td>" . $row['date'] . "</td>";
+			$fl .= "<td><span class='small text-muted'>" . $row['date'] . "</span></td>";
 			$fl .=  "</tr>";
 		}
 		return($fl);
