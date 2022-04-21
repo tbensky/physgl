@@ -3,6 +3,7 @@ function gtest()
 	console.log('graphicslib');
 }
 
+
 function get_quaternion(x1,y1,z1,x2,y2,z2)
 {
 	var dx = x2-x1;
@@ -30,7 +31,7 @@ function _PHYSGL_draw_box(x1,y1,z1,x2,y2,z2,color)
 	var dy = y2-y1;
 	var dz = z2-z1;
 	
-	var material = new THREE.MeshLambertMaterial({color: color.color, map: color.map});
+	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
 	var geo = new THREE.CubeGeometry(Math.abs(dx),Math.abs(dy),Math.abs(dz),1,1,1);
 	geo.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
 	var box = new THREE.Mesh(geo,material);
@@ -50,7 +51,7 @@ function _PHYSGL_draw_line(x1,y1,z1,x2,y2,z2,color,thickness)
 	var dz = z2-z1;
 	var r = Math.sqrt(dx*dx+dy*dy+dz*dz);
 	
-	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map});
+	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
 	var geo = new THREE.CylinderGeometry(thickness,thickness,r,10,10,false);
 	var cylinder = new THREE.Mesh(geo,material);
 	//geo.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
@@ -89,7 +90,7 @@ function _PHYSGL_draw_line(x1,y1,z1,x2,y2,z2,color,thickness)
 	var dz = z2-z1;
 	var r = Math.sqrt(dx*dx+dy*dy+dz*dz);
 	
-	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map});
+	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
 	var geo = new THREE.CylinderGeometry(radius,radius,r,100,50,open);
 	geo.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
 	var cylinder = new THREE.Mesh(geo, material);
@@ -128,7 +129,7 @@ function _PHYSGL_draw_line(x1,y1,z1,x2,y2,z2,color,thickness)
 	var dz = z2-z1;
 	var r = Math.sqrt(dx*dx+dy*dy+dz*dz);
 	
-	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map});
+	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
 	var geo = new THREE.CylinderGeometry(0,radius,r,100,50,open);
 	geo.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
 	var cylinder = new THREE.Mesh(geo, material);
@@ -169,7 +170,7 @@ function _PHYSGL_draw_arrow(x1,y1,z1,x2,y2,z2,color)
 	var dz = z2-z1;
 	var r = Math.sqrt(dx*dx+dy*dy+dz*dz);
 	
-	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map});
+	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
 	var geo = new THREE.CylinderGeometry(_PHYSGL_arrow_thickness,_PHYSGL_arrow_thickness,r,10,10,false);
 	geo.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
 	var cylinder = new THREE.Mesh(geo,material);
@@ -343,7 +344,7 @@ function _PHYSGL_draw_arrow(x1,y1,z1,x2,y2,z2,color)
 	 
 function _PHYSGL_draw_sphere(x,y,z,radius,color)
 {
-	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map});
+	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
 	geo =  new THREE.SphereGeometry(radius, 30, 20 );
 	geo.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
 	var sphere = new THREE.Mesh(geo, material);
@@ -355,7 +356,7 @@ function _PHYSGL_draw_sphere(x,y,z,radius,color)
 
 function _PHYSGL_draw_ellipsoid(x,y,z,dx,dy,dz,radius,color)
 {
-	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map});
+	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
 	geo =  new THREE.SphereGeometry(radius, 30, 20 );
 	geo.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
 	geo.applyMatrix( new THREE.Matrix4().makeScale( dx, dy, dz) );
@@ -368,7 +369,7 @@ function _PHYSGL_draw_ellipsoid(x,y,z,dx,dy,dz,radius,color)
 
 function dc(x,y,z,L,color)
 {
-	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map});
+	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
 	var geo = new THREE.CubeGeometry( L, L, L );
 	geo.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
 	var cube = new THREE.Mesh( geo, material);
@@ -379,7 +380,7 @@ function dc(x,y,z,L,color)
 
 function _PHYSGL_draw_torus(position,normal,Rtorus,Rtube,color)
 {
-	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map});
+	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
 	var geo = new THREE.TorusGeometry(Rtorus,Rtube,50,50);
 	geo.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
 	var torus = new THREE.Mesh(geo, material);
@@ -404,7 +405,7 @@ function _PHYSGL_draw_torus(position,normal,Rtorus,Rtube,color)
 
 function _PHYSGL_draw_plane(normal,z,color,side)
 {
-	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map});
+	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
 	var geo = new THREE.CubeGeometry( side, side, 1 );
 	geo.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
 	var plane = new THREE.Mesh(geo, material);
@@ -434,7 +435,7 @@ function _PHYSGL_draw_plane(normal,z,color,side)
 function _PHYSGL_dtext(x,y,z,str,size,color)
 {
 		var result = new THREE.Object3D();
-    	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map});
+    	var material = new THREE.MeshLambertMaterial({ color: color.color,map: color.map, transparent: _PHYSGL_transparent,opacity: _PHYSGL_opacity});
     	textWhy = new THREE.TextGeometry( str, { size: size,height: 0.15, curveSegments: 6, font: "helvetiker", weight: "normal", style: "normal"});
 		textWhy.applyMatrix( new THREE.Matrix4().makeTranslation( _PHYSGL_rotate.origin[0],_PHYSGL_rotate.origin[1],_PHYSGL_rotate.origin[2]));
 		text = new THREE.Mesh(textWhy,material);

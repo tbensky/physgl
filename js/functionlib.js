@@ -109,5 +109,17 @@ function snapshot(n)
 	_PHYSGL_clear_skip = n;
 }
 
+//true or false
+function set_transparent(state)
+{
+	_PHYSGL_transparent = state;
+}
+
+function set_opacity(n)
+{
+	_PHYSGL_opacity = n;
+}
+
+
 
 	

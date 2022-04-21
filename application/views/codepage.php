@@ -212,6 +212,8 @@ var _PHYSGL_frame_count;
 var _PHYSGL_kept_objects = [];
 var _PHYSGL_loop = false;
 var _PHYSGL_title_bar_height = 70; //see .css file
+var _PHYSGL_transparent = false;
+var _PHYSGL_opacity = 1.0;
 
 $(function() {
 

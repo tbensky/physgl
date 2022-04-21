@@ -130,7 +130,7 @@ MathJax = {
       <a class="nav-link" href=http://www.github.com/tbensky/physgl target="_blank" id="nav">Github</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href=https://docs.google.com/document/d/1nkw-9IEpItmFiob5mt_Z3ZEc6cm6MHx40X0s1fcgTQc/edit target="_blank">Docs</a>
+      <a class="nav-link" href="https://github.com/tbensky/physgl/blob/master/README.md" target="_blank">Docs</a>
     </li>
     <li class="nav-item">
     	$about_link

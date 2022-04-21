@@ -516,6 +516,8 @@ Examples:
 light(<0,100,500>)
 ```
 
+* set_transparent(state) (state=true or falsee)
+* set_opacity(n) (n=0..1) note: to make transparent objects, do: set_transparent(true) then set_opacity(0.5) [need both statements]
 * camera(position,look-at)
 * light(position)
 * draw_sphere(position,radius,color[,persist])
