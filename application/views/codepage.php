@@ -104,8 +104,8 @@ if (empty($folder_hash))
 			$url_files = site_url("welcome/filemanager/$folder_hash");
 			echo<<<EOT
 
-	<div class="row">
-		<div class="col-md-3">
+	<div class="row justify-content-end">
+		<div class="col-md-2">
 		    <label for="filename" class="sr-only">Project name</label>
 		    <input type="text" class="form-control" id="filename" name=filename placeholder="Project name">
 	    </div>
@@ -361,11 +361,20 @@ $('#filename').keydown(function() {run_count = 0;});
 
 function render_narrative(share_tf,share_hash,code_hash)
 {
-	console.log(share_tf,share_hash,code_hash);
+	//console.log(share_tf,share_hash,code_hash);
 
 	if (share_tf == "true")
 		get_narrative_from_share(share_hash);
 	else edit_narrative('headless');
+}
+
+//https://stackoverflow.com/questions/7467840/nl2br-equivalent-in-javascript
+function nl2br (str, is_xhtml) {
+    if (typeof str === 'undefined' || str === null) {
+        return '';
+    }
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
 }
 
 function edit_narrative(mode)
@@ -381,7 +390,7 @@ function edit_narrative(mode)
 								{
 									console.log(e);
 									$('#narrative_text').val(e);
-									$('#narrative').html(e);
+									$('#narrative').html(nl2br(e));
 									MathJax.typeset();
 								}
   	});
@@ -405,7 +414,7 @@ function get_narrative_from_share(share_hash)
 function update_narrative_text()
 {
 	var narr = $('#narrative_text').val();
-	$('#narrative').html(narr);
+	$('#narrative').html(nl2br(narr));
 	var url = '<?php echo site_url() . "/welcome/update_narrative/$code_hash"; ?>';
 	$.ajax({
 				method: 'POST',
@@ -1048,7 +1057,7 @@ function pause_button_toggle()
 	if (_PHYSGL_pause)
 		{
 			b = '<button class="btn btn-danger btn-sm mr-1" id="button_style" onclick="_PHYSGL_stop_run();">Stop</button>';
-			b = b + '<button class="btn btn-info btn-sm mr-1" id="button_style" onclick="_PHYSGL_pause_run();">Pause</button>';
+			b = b + '<button class="btn btn-info btn-sm mr-1" id="button_style" onclick="_PHYSGL_pause_run();">Continue</button>';
 			b = b + '<button class="btn btn-warning btn-sm mr-1" id="button_style" onclick="take_step();">Step</button>';
 		}
 	else

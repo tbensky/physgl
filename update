@@ -1,5 +1,5 @@
 rm physgl.zip
-zip -r physgl.zip application/controllers application/views application/models *.css *.js database images/ js
+zip -r physgl.zip application/controllers application/views application/models *.css *.js database images/ js codemirror
 cp physgl.zip ~/Dropbox/Scheduling/SiteBackup
 cp physgl.zip /Users/tom/AWS
 cd /Users/tom/AWS

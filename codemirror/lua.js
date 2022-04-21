@@ -61,7 +61,7 @@ CodeMirror.defineMode("lua", function(config, parserConfig) {
   ]);
   var keywords = wordRE(["and","break","elseif","false","nil","not","or","return",
                          "true","function", "end", "if", "then", "else", "do",
-                         "while", "repeat", "until", "for", "in", "local" ]);
+                         "while", "repeat", "until", "for", "in", "local","animate" ]);
 
   var indentTokens = wordRE(["function", "if","repeat","do", "\\(", "{"]);
   var dedentTokens = wordRE(["end", "until", "\\)", "}"]);
