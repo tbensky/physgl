@@ -1,15 +1,15 @@
 # PhysGL
 
+PhysGL is a browser-based scripting language and development environment for quickly creating 3D computer graphics scenes, and/or
+animation.  With your WebGL-enabled browser is pointing to a PhysGL installation
+(see https://physgl.csm.calpoly.edu), you should see the main development screen, which consists of
+a code-editor to the left and a gray graphics-output window to the right. You
+should be able to see a “Run” button near the code editor.
+
 Location: https://physgl.csm.calpoly.edu
 
 
 ## Quick Start for the Impatient 
-
-PhysGL is a browser-based scripting language and development environment for quickly creating 3D computer graphics scenes, and/or
-animation.  With your WebGL-enabled browser is pointing to a PhysGL installation
-(see physgl.csm.calpoly.edu), you should see the main development screen, which consists of
-a code-editor to the left and a gray graphics-output window to the right. You
-should be able to see a “Run” button under the code editor.
 
 
 Into the code editor, type this single line
