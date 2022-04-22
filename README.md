@@ -3,7 +3,7 @@
 Location: https://physgl.csm.calpoly.edu
 
 
-Quick Start for the Impatient 
+## Quick Start for the Impatient 
 
 PhysGL is a browser-based scripting language and development environment for quickly creating 3D computer graphics scenes, and/or
 animation.  With your WebGL-enabled browser is pointing to a PhysGL installation
@@ -516,7 +516,7 @@ Examples:
 light(<0,100,500>)
 ```
 
-* set_transparent(state) (state=true or falsee)
+* set_transparent(state) (state=true or false)
 * set_opacity(n) (n=0..1) note: to make transparent objects, do: set_transparent(true) then set_opacity(0.5) [need both statements]
 * camera(position,look-at)
 * light(position)

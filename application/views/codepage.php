@@ -79,20 +79,25 @@ if (empty($folder_hash))
 
 
 <?php
+
 	$guest = true;
 	
-	if (!empty($user_hash) && $this->Auth->authenticate_userhash($user_hash) == true)
+	if (!empty($user_hash) && $this->Auth->authenticate_userhash($user_hash))
+	{
 		$guest = false;
-	
+	}
 		
 	if ($guest == true && $share == false)
 		{
 			$filename="";
 			$code="";
 			$code_hash="";
-			$share = true;
+			$share = "true";
 			$user_hash="";
 		}
+
+	if ($guest === false)
+		$share = "false";
 ?>
 
 <div id="status"></div>
@@ -102,10 +107,14 @@ if (empty($folder_hash))
 	if ($share === "false")
 		{
 			$url_files = site_url("welcome/filemanager/$folder_hash");
-			echo<<<EOT
+			echo<<<EOT1
 
 	<div class="row justify-content-end">
+		<div class="col-md-2 text-right">
+				<span class="badge badge-pill badge-success" id="save_update"></span>
+		</div>
 		<div class="col-md-2">
+
 		    <label for="filename" class="sr-only">Project name</label>
 		    <input type="text" class="form-control" id="filename" name=filename placeholder="Project name">
 	    </div>
@@ -122,9 +131,11 @@ if (empty($folder_hash))
 			</ul>
 		</span>
 
-		<span id="save_update"></span>
+		
 	</div>
-EOT;		
+
+EOT1;		
+
 		}	
 ?>
 
@@ -490,7 +501,7 @@ function save_code()
 						layout: JSON.stringify(layout)
 						});
 	
-	$('#save_update').html('Saved.').fadeIn(1000).fadeOut(2000);
+	$('#save_update').html('Saved').fadeIn(1000).fadeOut(2000);
 
 	
 }

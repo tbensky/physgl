@@ -18,6 +18,7 @@ class Welcome extends CI_Controller {
     {
     	$user_name = $this->session->userdata('username');
     	$user_hash = $this->Files->get_user_hash($user_name);
+    	
     	$share_hash = 'none';
     	$login_form = 'yes';
     	if (!empty($user_name))

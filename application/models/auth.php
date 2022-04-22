@@ -38,9 +38,7 @@ class Auth extends CI_Model {
     function authenticate_userhash($user_hash)
     {
     	$q = $this->db->query("select * from user where user_hash='$user_hash'");
-    	if ($q->num_rows() == 0)
-    		return(false);
-    	return(true);
+        return($q->num_rows() == 1);
     }
     
     function get_username_from_userhash($user_hash)
