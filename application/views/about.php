@@ -6,7 +6,7 @@ echo <<<EOT
 
 <h1>About PhysGL</h1>
 
-Illustrations and animations made with computer graphics are a compelling
+Illustrations and animations made with computer graphics can be a compelling
 medium.  Just look at the movie and video game industries. Where would they be
 without "nice looking" computer graphics?
 
