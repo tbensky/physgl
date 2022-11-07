@@ -538,8 +538,8 @@ light(<0,100,500>)
 
 # PhysGL layuout
 
-When starting PhysGL for your intendend audience, you might want certain windows hidden. You may for example, want the code
-window to not appear.  You can control such things in the following manner:
+When starting PhysGL for your intendend audience, you might want to hide certain windows. You may for example, want not want the code
+window to appear.  You can control such things in the following manner:
 
 1. Go to one of your PhysGL projects
 1. Get a share link for it
@@ -553,12 +553,14 @@ https://physgl.csm.calpoly.edu/index.php/welcome/share/4ef6613f801be6e067481bc85
 ```
 
 1. Now decide what you want to hide in the physgl screen. Your choices are
-``code
+```
+code
 graphics
 xy
 console
 narrative
-header```
+header
+```
 
 1. Add each thing you want to hide in a comma list after the `?hide=` tag, so if you do
 ```
