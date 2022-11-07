@@ -536,7 +536,7 @@ light(<0,100,500>)
 * draw_axes(scale[,persist])
 * frame_delta(n)* 
 
-# PhysGL layuout
+# PhysGL Startup Layout
 
 When starting PhysGL for your intendend audience, you might want to hide certain windows. You may for example, want not want the code
 window to appear.  You can control such things in the following manner:
