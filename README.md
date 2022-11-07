@@ -535,3 +535,33 @@ light(<0,100,500>)
 * rnd([min,max])
 * draw_axes(scale[,persist])
 * frame_delta(n)* 
+
+# PhysGL layuout
+
+When starting PhysGL for your intendend audience, you might want certain windows hidden. You may for example, want the code
+window to not appear.  You can control such things in the following manner:
+
+1. Go to one of your PhysGL projects
+1. Get a share link for it
+1. Take a look at the share link, here's an example of one: 
+```
+https://physgl.csm.calpoly.edu/index.php/welcome/share/4ef6613f801be6e067481bc854a6f814
+```
+1.  At the very end of the share link, add this
+``` 
+?hide=
+```
+
+1. Now decide what you want to hide in the physgl screen. Your choices are
+``code
+graphics
+xy
+console
+narrative
+header```
+
+1. Add each thing you want to hide in a comma list after the `?hide=` tag, so if you do
+```
+https://physgl.csm.calpoly.edu/index.php/welcome/share/4ef6613f801be6e067481bc854a6f814?hide=code,header,narrative
+```
+your physgl project will come up, but the code, header, and narrative windows will be hidden.

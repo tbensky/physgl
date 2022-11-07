@@ -45,6 +45,11 @@
 //$user_name, $user_hash, $filename, $code, $narrative, $code_hash, $share_hash, $share and are defined
 include('config_paths.php');
 
+if (empty($_GET['hide']))
+  $Hide = "";
+else $Hide = $_GET['hide'];
+
+
 if (empty($code_hash)) 
 	$code_hash=""; 
 
@@ -226,6 +231,9 @@ var _PHYSGL_title_bar_height = 70; //see .css file
 var _PHYSGL_transparent = false;
 var _PHYSGL_opacity = 1.0;
 
+
+
+
 $(function() {
 
 
@@ -233,7 +241,8 @@ $(function() {
 
 
  var layout = <?php echo $layout; ?>;
-   
+
+
 	myCodeMirror = CodeMirror.fromTextArea(document.getElementById("code_editor"),
 											{lineNumbers: true,matchBrackets: true, theme: "default", height: 'auto', viewportMargin: Infinity});
 	
@@ -257,16 +266,28 @@ $(function() {
 		offsetx = 30;
 		console.log(htmlid);
 
-		$(htmlid).dialog({
-								autoOpen: true,
-								position: {my: 'left+'+L['x'] + ' top', at: 'left top+' + L['y']},
-								width: L['width'] + parseInt(offsetx),
-								height: parseInt(L['height']) + parseInt(offsety),
-								beforeClose: function(){return false;}
-								});
-		$(htmlid).dialogExtend({"minimizable": true,"collapsable": true});	
-		if (L['x'] == 0 && L['y'] == 0)
-			$(htmlid).dialogExtend("minimize");
+
+		if (!hide_element(id))
+		{
+			$(htmlid).dialog({
+									autoOpen: true,
+									position: {my: 'left+'+L['x'] + ' top', at: 'left top+' + L['y']},
+									width: L['width'] + parseInt(offsetx),
+									height: parseInt(L['height']) + parseInt(offsety),
+									beforeClose: function(){return false;}
+									});
+			$(htmlid).dialogExtend({"minimizable": true,"collapsable": true});	
+			if (L['x'] == 0 && L['y'] == 0)
+				$(htmlid).dialogExtend("minimize");
+		}
+
+		//needed to hide code
+		if (hide_element("code_dialog"))
+			$("#code_dialog").css("visibility","hidden");
+
+		//needed to narrative
+		if (hide_element("narrative_dialog"))
+			$("#narrative_dialog").css("visibility","hidden");
 
 		if (id == "graphics_dialog")
 		{
@@ -303,9 +324,8 @@ $(function() {
 	// 										);
 						
 	
-   
-    						
-    $('#xy_dialog').on("dialogresize",function(event,ui)
+		
+	$('#xy_dialog').on("dialogresize",function(event,ui)
 												{
 													$('#graph').height($('#xy_dialog').height()); 
 													$('#graph').width($('#xy_dialog').width());
@@ -341,7 +361,13 @@ $(function() {
 	
 	initial_code = '<?php echo addslashes($code); ?>';
 	myCodeMirror.setValue(unescape(decodeURIComponent(initial_code)));
-    myCodeMirror.refresh();   
+
+	console.log("hi");
+	if (!hide_element("code_dialog"))
+	{
+		myCodeMirror.refresh();   
+	}
+    	
 	$('#filename').val('<?php echo $filename; ?>');
 						
 	
@@ -360,10 +386,7 @@ $(function() {
 
    	render_narrative('<?php echo $share; ?>','<?php echo $share_hash; ?>','<?php echo $code_hash; ?>');	
 
-});//end of onLoad
-
-  
-google.load("visualization", "1", {packages:["corechart"]});
+	   google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(_PHYSGL_graphs_loaded_callback);
 
 
@@ -371,6 +394,19 @@ google.setOnLoadCallback(_PHYSGL_graphs_loaded_callback);
 
 
 $('#filename').keydown(function() {run_count = 0;});
+
+});//end of onLoad
+
+
+function hide_element(id)
+{
+	var hide = '<?php echo $Hide; ?>';
+	var s = id.split("_");
+	return(hide.indexOf(s[0]) != -1);
+}
+
+
+
 
 function render_narrative(share_tf,share_hash,code_hash)
 {

@@ -1,6 +1,10 @@
 <?php
 include('config_paths.php');
 
+if (empty($_GET['hide']))
+  $Hide = "";
+else $Hide = $_GET['hide'];
+
 $about_link = anchor("welcome/about","About",Array("class" => "nav-link"));
 
 if (empty($home_link))
@@ -116,7 +120,11 @@ MathJax = {
 
 
 <body>
+END;
 
+
+if (strpos($Hide,"header") === false)
+  echo <<<NAV_BAR
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 
  <img src="$base_url/logo.png">
@@ -147,8 +155,7 @@ MathJax = {
   </ul>
 
 </nav>
-
-END;
+NAV_BAR;
 
 
 ?>
